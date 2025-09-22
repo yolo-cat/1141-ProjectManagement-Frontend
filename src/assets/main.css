@@ -1,0 +1,167 @@
+@import './base.css';
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+  #app {
+    display: block;
+    padding: 0 2rem;
+  }
+}
+
+/* 主題切換按鈕 RWD 佈局 */
+header {
+  position: relative;
+}
+.theme-btn-box {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 10;
+}
+@media (max-width: 900px) {
+  .theme-btn-box {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* nav 佈局調整 */
+nav.nb-brutal {
+  background: var(--color-nav-bg);
+  color: var(--color-text);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 #000, 0 4px 12px rgba(0,0,0,0.10);
+  border: 3px solid #000;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.nav-left {
+  width: 100%;
+}
+.theme-btn-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 900px) {
+  .theme-btn-box {
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+}
+.nav-section {
+  color: var(--color-text);
+  font-weight: bold;
+}
+.nav-section strong {
+  color: var(--color-text);
+  font-weight: bold;
+}
+nav.nb-brutal a {
+  color: var(--color-nav-link);
+  background: var(--color-nav-bg);
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+nav.nb-brutal a.router-link-exact-active {
+  color: var(--color-nav-link-active);
+  background: var(--color-background);
+  border-color: var(--color-nav-link-active);
+  box-shadow: 8px 8px 0 #000;
+  font-weight: bold;
+}
+nav.nb-brutal a:focus, nav.nb-brutal a:hover {
+  background: var(--color-nav-link);
+  color: var(--color-nav-bg);
+  border-color: #000;
+  box-shadow: 12px 12px 0 #000;
+  outline: none;
+}
+
+/* 修正 logout-btn 主題色彩 */
+.logout-btn {
+  background: var(--color-nav-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* 黑暗模式下 logout-btn 預設黑色背景、白色文字，hover 反轉為白色背景、黑色文字 */
+.nb-theme-dark .logout-btn {
+  background: #181818 !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+.nb-theme-dark .logout-btn:hover {
+  background: #fff !important;
+  color: #181818 !important;
+  border: 1px solid #181818 !important;
+}
+/* 白天模式下維持原本設計 */
+.nb-theme-light .logout-btn {
+  background: var(--color-nav-bg) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+}
+.nb-theme-light .logout-btn:hover {
+  background: #181818 !important;
+  color: #fff !important;
+  border: 1px solid #181818 !important;
+}
+
+/* main 主體內容 RWD 不重疊 */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* 夜間模式下導航按鈕 active 狀態強制黑色文字和邊框、黃色背景 */
+.nb-theme-dark nav.nb-brutal a.router-link-exact-active {
+  color: #181818 !important;
+  background: #ffd700 !important;
+  border-color: #181818 !important;
+}
